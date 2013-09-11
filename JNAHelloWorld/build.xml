@@ -14,7 +14,7 @@
 		</javac>
 	</target>
 
-	<!-- create the web content -->
+	<!-- create the jar -->
 	<target name="build" depends="compile">
 		<jar jarfile="deploy/${project-name}.jar" basedir="${base-dir}" >
 			<manifest>
@@ -26,10 +26,21 @@
 		</jar>
 	</target>
 	
-	<!-- launch the web content -->
+	<!-- run the jar -->
 	<target name="run">
 		<java jar="deploy/${project-name}.jar" fork="true"
 		         failonerror="true" >
+		</java>
+	</target>
+	
+	<!-- run the jar with arguments-->
+	<target name="runa">
+		<java jar="deploy/${project-name}.jar" fork="true"
+		         failonerror="true" >
+			<arg value="Chris"/>
+			<arg value="Wong"/>
+			<arg value="is"/>
+			<arg value="handsome"/>
 		</java>
 	</target>
 </project>

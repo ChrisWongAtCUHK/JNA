@@ -14,7 +14,7 @@ public class HelloWorld {
     }
  
     public static void main(String[] args) {
-        CLibrary.INSTANCE.printf("Chris Wong is handsome.\n");
+        CLibrary.INSTANCE.printf("There is only one truth.\n");
         for (int i = 0; i < args.length; i++) {
             CLibrary.INSTANCE.printf("Argument %d: %s\n", i, args[i]);
         }
