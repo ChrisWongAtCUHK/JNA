@@ -10,7 +10,7 @@
 	
 	<!-- compile the project -->
 	<target name="compile" description="compile the source files">
-		<javac includeantruntime="false" srcdir="./src" destdir="${base-dir}" >
+		<javac includeantruntime="false" srcdir="./src" destdir="${base-dir}" classpath="${base-dir};${jna-path}/${jna-jar}">
 		</javac>
 	</target>
 
