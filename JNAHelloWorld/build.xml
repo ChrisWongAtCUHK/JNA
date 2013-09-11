@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project basedir="." default="build" name="JNA">
+	<property environment="env"/>
+	<property name="base-dir" value="bin"/>
+	<property name="project-name" value="JNAHelloWorld"/>
+	<property name="created-by" value="Chris Wong"/>
+	<property name="main-class" value="jna.basic.HelloWorld"/>
+	<property name="jna-path" value=".." />
+	<property name="jna-jar" value="jna-4.0.0.jar" />
+	
+	<!-- compile the project -->
+	<target name="compile" description="compile the source files">
+		<javac includeantruntime="false" srcdir="./src" destdir="${base-dir}" >
+		</javac>
+	</target>
+
+	<!-- create the web content -->
+	<target name="build" depends="compile">
+		<jar jarfile="deploy/${project-name}.jar" basedir="${base-dir}" >
+			<manifest>
+				<attribute name="Manifest-Version" value="1.0" />
+				<attribute name="Created-By" value="${created-by}" />
+				<attribute name="Main-Class" value="${main-class}" />
+			</manifest>
+			<zipfileset src="${jna-path}/${jna-jar}" />
+		</jar>
+	</target>
+	
+	<!-- launch the web content -->
+	<target name="run">
+		<java jar="deploy/${project-name}.jar" fork="true"
+		         failonerror="true" >
+		</java>
+	</target>
+</project>
